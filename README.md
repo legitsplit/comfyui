@@ -17,7 +17,7 @@ source venv/bin/activate
 ### Install Torch (check your gfx version)
 ```
 uv pip install --upgrade pip wheel setuptools
-uv pip install --pre torch torchvision torchaudio triton --index-url https://rocm.nightlies.amd.com/v2/gfx120X-all/
+uv pip install --pre torch torchvision torchaudio --index-url https://rocm.nightlies.amd.com/v2/gfx120X-all/
 ```
 ### Install Flash-Attention
 ```
