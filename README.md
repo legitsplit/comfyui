@@ -30,17 +30,16 @@ FLASH_ATTENTION_TRITON_AMD_ENABLE="TRUE" pip install --no-build-isolation .
 cd ..
 uv pip install -r requirements.txt
 ```
-### Create a launch script
+### Create a launch script (e.g. with nano)
 ```
 #!/bin/bash
-export HIP_VISIBLE_DEVICES=0
 export HIP_VISIBLE_DEVICES=0
 export COMFYUI_ENABLE_MIOPEN=1
 export MIOPEN_FIND_MODE=FAST
 export MIOPEN_ENABLE_CACHE=1
 
 # slower, but more stable / fewer OOMs. No OOMs? Maybe you don't need this.
-#export PYTORCH_NO_HIP_MEMORY_CACHING=1
+export PYTORCH_NO_HIP_MEMORY_CACHING=1
 
 # triton
 export TORCH_ROCM_AOTRITON_ENABLE_EXPERIMENTAL=1
@@ -58,4 +57,8 @@ python3 main.py --use-flash-attention --disable-pinned-memory
 # --use-flash-attention: use faster flash attention installed above.
 # --disable-pinned-memory: github.com/Comfy-Org/ComfyUI/issues/11781#issuecomment-3802152655
 # --cache-ram 32: optional, helps prevent comfy from using up all 64GB of ram.
+```
+### Make launch script executable
+```
+sudo chmod +x script.sh
 ```
