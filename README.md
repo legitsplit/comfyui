@@ -55,4 +55,7 @@ export PYTORCH_MIOPEN_SUGGEST_NHWC=0
 cd ComfyUI/
 source venv/bin/activate
 python3 main.py --use-flash-attention --disable-pinned-memory
+# --use-flash-attention: use faster flash attention installed above.
+# --disable-pinned-memory: github.com/Comfy-Org/ComfyUI/issues/11781#issuecomment-3802152655
+# --cache-ram 32: optional, helps prevent comfy from using up all 64GB of ram.
 ```
