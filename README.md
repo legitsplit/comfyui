@@ -17,13 +17,14 @@ source venv/bin/activate
 ### Install Torch (check your gfx version)
 ```
 uv pip install --upgrade pip wheel
-uv pip install --pre torch torchvision torchaudio triton --index-url https://rocm.nightlies.amd.com/v2/gfx120X-all/
+uv pip install --pre torch torchvision torchaudio --index-url https://rocm.nightlies.amd.com/v2/gfx120X-all/
 ```
 ### Install Flash-Attention
 ```
 git clone https://github.com/Dao-AILab/flash-attention
 cd flash-attention
 FLASH_ATTENTION_TRITON_AMD_ENABLE="TRUE" pip install --no-build-isolation .
+uv pip install --pre triton --index-url https://rocm.nightlies.amd.com/v2/gfx120X-all/
 ```
 ### Finish installing ComfyUI requirements
 ```
